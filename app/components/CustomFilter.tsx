@@ -1,9 +1,11 @@
-import { CustomFilter, CustomFilterProps } from "@/types";
+"use client"
+
 import { updateSearchParams } from "@/utils";
 import { Listbox, Transition } from "@headlessui/react";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
+import {  CustomFilterProps } from "@/types";
 
 const CustomFilter = ({ title, options }: CustomFilterProps) => {
   const router = useRouter();
@@ -40,25 +42,24 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
             leaveFrom={"opacity-100"}
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="custom-filter__options">
+          <Listbox.Options className='custom-filter__options'>
+              {/* Map over the options and display them as listbox options */}
               {options.map((option) => (
                 <Listbox.Option
-                  value={option}
                   key={option.title}
-                  className={(active) =>
-                    `relative py-2 px-4 select-none cursor-default ${
+                  className={({ active }) =>
+                    `relative cursor-default select-none py-2 px-4 ${
                       active ? "bg-primary-blue text-white" : "text-gray-900"
                     }`
                   }
+                  value={option}
                 >
                   {({ selected }) => (
-                    <span
-                      className={`block truncate ${
-                        selected ? "font-medium" : "font-normal"
-                      }`}
-                    >
-                      {option.title}
-                    </span>
+                    <>
+                      <span className={`block truncate ${selected ? "font-medium" : "font-normal"}`} >
+                        {option.title}
+                      </span>
+                    </>
                   )}
                 </Listbox.Option>
               ))}
