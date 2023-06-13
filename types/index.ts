@@ -15,10 +15,7 @@ export interface CustomFilter {
   title: string;
 }
 
-export interface SearchManufacturerProps {
-  manufacturer: string;
-  setManufacutrer: (manufacturer: string) => void;
-}
+
 
 export interface CarProps {
   city_mpg: number;
@@ -55,9 +52,17 @@ export interface OptionsProps {
 export interface CustomFilterProps {
   title: string;
   options: OptionsProps[];
+
 }
 
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
+  setLimit: number 
+}
+
+
+export interface SearchManuFacturerProps {
+  manufacturer: string;
+  setManuFacturer: (manufacturer: string) => void;
 }

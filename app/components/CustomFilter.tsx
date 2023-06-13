@@ -1,28 +1,31 @@
-"use client"
+"use client";
 
 import { updateSearchParams } from "@/utils";
 import { Listbox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
-import {  CustomFilterProps } from "@/types";
+import { CustomFilterProps } from "@/types";
 
 const CustomFilter = ({ title, options }: CustomFilterProps) => {
   const router = useRouter();
+
   const [selected, setSelected] = useState(options[0]);
 
+  // update the URL search parameters and navigate to the new URL
   const handleUpdateParams = (e: { title: string; value: string }) => {
-    const newPathName = updateSearchParams(title , e.value.toLocaleLowerCase());
+    const newPathName = updateSearchParams(title, e.value.toLowerCase());
 
     router.push(newPathName);
   };
+
   return (
     <div className="w-fit">
       <Listbox
         value={selected}
         onChange={(e) => {
-          setSelected(e);
-          handleUpdateParams(e);
+          setSelected(e); // Update the selected option in state
+          handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
         }}
       >
         <div className="relative w-fit z-10 ">
@@ -42,7 +45,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
             leaveFrom={"opacity-100"}
             leaveTo="opacity-0"
           >
-          <Listbox.Options className='custom-filter__options'>
+            <Listbox.Options className="custom-filter__options">
               {/* Map over the options and display them as listbox options */}
               {options.map((option) => (
                 <Listbox.Option
@@ -56,7 +59,11 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
                 >
                   {({ selected }) => (
                     <>
-                      <span className={`block truncate ${selected ? "font-medium" : "font-normal"}`} >
+                      <span
+                        className={`block truncate ${
+                          selected ? "font-medium" : "font-normal"
+                        }`}
+                      >
                         {option.title}
                       </span>
                     </>
