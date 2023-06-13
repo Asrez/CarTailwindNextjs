@@ -1,3 +1,5 @@
+"use client"
+
 import CarCard from "./CarCard";
 import CarDetails from "./CarDetails";
 import CustomButton from "./CustomButton";
