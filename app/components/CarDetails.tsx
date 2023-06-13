@@ -1,6 +1,7 @@
 "use client";
 
 import { CarProps } from "@/types";
+import { generateCarImageUrl } from "@/utils";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import React, { Fragment } from "react";
@@ -62,7 +63,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                         alt="car model"
                         className="object-contain"
                         fill
-                        src={"/hero.png"}
+                        src={generateCarImageUrl(car)}
                       />
                     </div>
                     <div className="flex gap-3 ">
@@ -72,7 +73,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                           alt="car model"
                           className="object-contain"
                           fill
-                          src={"/hero.png"}
+                          src={generateCarImageUrl(car , "29")}
                         />
                       </div>
 
@@ -82,7 +83,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                           alt="car model"
                           className="object-contain"
                           fill
-                          src={"/hero.png"}
+                          src={generateCarImageUrl(car , "33")}
                         />
                       </div>
 
@@ -92,7 +93,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                           alt="car model"
                           className="object-contain"
                           fill
-                          src={"/hero.png"}
+                          src={generateCarImageUrl(car , "13")}
                         />
                       </div>
                     </div>

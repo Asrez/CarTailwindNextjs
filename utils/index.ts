@@ -6,7 +6,7 @@ export async function fetchCars() {
       "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
     },
     response = await fetch(
-      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla",
+      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=carrera",
       {
         headers: headers,
       }
