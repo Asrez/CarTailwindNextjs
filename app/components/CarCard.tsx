@@ -25,7 +25,8 @@ const CarCard = ({ car }: CarCardProps) => {
       </div>
       {/*  */}
       <p className="flex mt-6 text-[32px] font-extrabold">
-        <span className="self-start text-[14px] font-semibold">{carRent}</span>
+        <span className="self-start text-[14px] font-semibold">$</span>
+        {carRent}
         <span className="self-end text-[14px] font-medium">/day</span>
       </p>
 
@@ -33,6 +34,7 @@ const CarCard = ({ car }: CarCardProps) => {
         <Image
           width={50}
           height={50}
+          priority
           alt="car model"
           className="object-contain"
           fill
@@ -63,7 +65,7 @@ const CarCard = ({ car }: CarCardProps) => {
               width={20}
               height={20}
               alt="steering wheel"
-              src={"/steering wheel.svg"}
+              src={"/steering-wheel.svg"}
             />
             <p className="text-[14px]">{city_mpg} MPG</p>
           </div>
