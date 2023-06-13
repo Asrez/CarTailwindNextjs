@@ -29,16 +29,17 @@ const CarCard = ({ car }: CarCardProps) => {
         <span className="self-end text-[14px] font-medium">/day</span>
       </p>
 
-      <div className="relative w-full h-40 my-3 object-contain"></div>
-      <Image
-        width={50}
-        height={50}
-        alt="car model"
-        className="object-contain"
-        fill
-        sizes=""
-        src={"/hero.png"}
-      />
+      <div className="relative w-full h-40 my-3 object-contain">
+        <Image
+          width={50}
+          height={50}
+          alt="car model"
+          className="object-contain"
+          fill
+          sizes=""
+          src={"/hero.png"}
+        />
+      </div>
       <div className="relative  flex w-full mt-2">
         <div className="flex group-hover:invisible  w-full justify-between text-gray">
           <div className="flex flex-col justify-center items-center gap-2">
@@ -78,7 +79,11 @@ const CarCard = ({ car }: CarCardProps) => {
           />
         </div>
       </div>
-      <CarDetails isOpen={isOpen} closeModal={()=> setIsOpen(false)}  car={car} />
+      <CarDetails
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        car={car}
+      />
     </div>
   );
 };
