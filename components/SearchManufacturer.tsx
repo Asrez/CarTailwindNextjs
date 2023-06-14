@@ -1,11 +1,9 @@
-"use client"
-
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 
-import { manufacturers } from "@/constants";
-import { SearchManuFacturerProps } from "@/types";
+import { manufacturers } from "@constants";
+import { SearchManuFacturerProps } from "@types";
 
 const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacturerProps) => {
   const [query, setQuery] = useState("");
@@ -60,7 +58,7 @@ const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacture
                   value={query}
                   className='search-manufacturer__option'
                 >
-                  Create {query}
+                  Create "{query}"
                 </Combobox.Option>
               ) : (
                 filteredManufacturers.map((item) => (

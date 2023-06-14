@@ -20,7 +20,6 @@
   @apply sm:px-16 px-6;
 }
 
-
 .padding-y {
   @apply py-4;
 }
